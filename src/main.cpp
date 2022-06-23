@@ -21,7 +21,7 @@ static void print_help()
     cerr << "sipcmd2 options: " << endl
          << "-u <name>   --user <name>         username (required)" << endl
          << "-c <passw>  --password <passw>    password for registration" << endl
-         << "-a <name>   --alias <name>        username alias" << endl
+         << "-a <name>   --authid <name>        authentication username" << endl
          << "-l <addr>   --localaddress <addr> local address to listen on" << endl
          << "-o <file>   --opallog <file>      enable extra opal library logging to file" << endl
          << "-p <port>   --listenport <port>   the port to listen on" << endl
@@ -299,6 +299,7 @@ bool Manager::Init(PArgList &args)
     args.Parse(
         "u-user:"
         "c-password:"
+        "a-authid:"
         "l-localaddress:"
         "o-opallog:"
         "p-listenport:"
@@ -354,10 +355,6 @@ bool Manager::Init(PArgList &args)
         {
             sipep->SetDefaultLocalPartyName(args.GetOptionString('u'));
         }
-        if (args.HasOption('a'))
-        {
-            sipep->SetDefaultDisplayName(args.GetOptionString('a'));
-        }
         if (args.HasOption('c'))
         {
             servername_sip = args.GetOptionString('w');
@@ -366,6 +363,10 @@ bool Manager::Init(PArgList &args)
 
             param.m_registrarAddress = args.GetOptionString('w');
             param.m_addressOfRecord = args.GetOptionString('u');
+            if (args.HasOption('a'))
+            {
+                 param.m_authID = args.GetOptionString('a');
+            }
             param.m_password = args.GetOptionString('c');
             param.m_realm = args.GetOptionString('g');
             param.m_expire = 200;
