@@ -53,7 +53,7 @@ If you compile the dependencies from source, make sure that libpt and libopal ar
 <pre>
 -u <name> --user <name>         username (required)
 -c <passw> --password <passw>   password for registration
--a <name> --alias <name>        username alias
+-a <name>  --authid <name>      authentication username
 -l <addr> --localaddress <addr> local address to listen on
 -o <file> --opallog <file>      enable extra opal library logging to file
 -p <port> --listenport <port>   the port to listen on
