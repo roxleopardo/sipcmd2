@@ -717,9 +717,10 @@ bool Manager::OnIncomingConnection(OpalConnection &connection, unsigned opts,
 {
     std::cout << __func__ << ": token=" << connection.GetToken() << std::endl;
 
-    TPState::Instance().SetState(TPState::ESTABLISHED);
+    //TPState::Instance().SetState(TPState::ESTABLISHED);
     //localep->AcceptIncomingCall(connection.GetCall().GetToken());
-    return OpalManager::OnIncomingConnection(connection, opts, stropts);
+    //return OpalManager::OnIncomingConnection(connection, opts, stropts);
+    return false;
 }
 
 void Manager::OnEstablished(OpalConnection &connection)
