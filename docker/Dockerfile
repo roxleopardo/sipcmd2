@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LOCALE en_EN.UTF-8
 
 RUN apt-get update && apt-get -y upgrade && apt-get install -y vim git libopal-dev libpt-dev
-RUN git clone --branch queue-watcher https://github.com/roxleopardo/sipcmd2.git && \
+RUN git clone -b queue-watcher https://github.com/roxleopardo/sipcmd2.git && \
 cd sipcmd2 && \
 apt install -y make g++ 
 RUN cd sipcmd2 && make
