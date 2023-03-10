@@ -17,7 +17,18 @@ sudo apt-get update -y
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 </pre>
 <br>
-Ajust <code>/etc/nftables.conf</code> using the file present on this repository
+  Ajust <code>/etc/nftables.conf</code> using the file present on this repository
 <br>
+  Reload nftables config using <code>systemctl reload nftables.service</code>
+<br>
+  Check if rules worked using <code>/sbin/nft list ruleset</code>
+<br>
+  Ajust <code>/etc/docker/daemon.json</code> using the file present on this repository
+<pre>
+systemctl enable containerd
+systemctl enable docker
+systemctl restart containerd
+systemctl restart docker
+</pre>
 </body>
 </html>
