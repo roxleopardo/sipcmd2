@@ -58,7 +58,7 @@ deb-src http://security.debian.org/debian-security/ buster/updates main contrib 
  Clone this repository <code>git clone -b queue-watcher https://github.com/roxleopardo/sipcmd2.git</code>
 <br>
 <br>
- Open <code>sipcmd2/docker> folder
+ Open <code>sipcmd2/docker</code> folder
 <br>
 <br>
  Edit <code>Dockerfile</code> ajusting extenssion connection.
