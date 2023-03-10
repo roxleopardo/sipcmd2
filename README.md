@@ -1,31 +1,20 @@
 <html>
 <body>
-<h2>sipcmd2 - simple SIP command line softphone</h2>
+<h2>Queue Watcher - simple SIP command line softphone to hold 3CX queues</h2>
 <h3>Introduction</h3>
-<p>
-Updated sipcmd command line soft phone that makes phone calls, accepts calls, enters DTMF digits, plays back WAV files and records them. A useful testing tool for VoIP systems. Runs on Linux.
-</p>
 <h3>Install</h3>
 <h4>Dependencies</h4>
 <p>
-<h5>Amazon Linux 2 / RHEL 7 / CentOS 7</h5>
+<h5>Docker</h5>
 <code> 
- yum install opal-devel ptlib-devel && yum groupinstall 'Development Tools'
-</code>
-<h5>Ubuntu</h5>
-<code> 
- apt-get install opal-dev ptlib-dev 
-</code>
-<h5>Ubuntu 14.10</h5>
-<code> 
- apt-get install libopal-dev
-</code>
-<h5>Ubuntu 12.10</h5>
-<code>apt-get install libpt-dev libopal-dev</code>
-</p>
-<h5>Debian</h5>
-<code> 
- apt-get install libopal-dev libpt-dev 
+ sudo apt-get install ca-certificates curl gnupg lsb-release -y
+ sudo mkdir -m 0755 -p /etc/apt/keyrings
+ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+ sudo apt-get update -y
+ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 </code>
 <br>
 <br>
