@@ -7,26 +7,25 @@
 <p>
 <h5>Docker</h5>
 <br>
- Add to <code>/etc/apt/sources.list</code>
-<br>
+Check if your <code>/etc/apt/sources.list</code> contains default debian repo:
 <pre>
 deb http://deb.debian.org/debian buster main contrib non-free
 deb-src http://deb.debian.org/debian buster main contrib non-free
-
 deb http://deb.debian.org/debian buster-updates main contrib non-free
 deb-src http://deb.debian.org/debian buster-updates main contrib non-free
-
 deb http://deb.debian.org/debian buster-backports main contrib non-free
 deb-src http://deb.debian.org/debian buster-backports main contrib non-free
-
 deb http://security.debian.org/debian-security/ buster/updates main contrib non-free
 deb-src http://security.debian.org/debian-security/ buster/updates main contrib non-free
 </pre>
 <br>
+ Run <code>apt update</code> to update repo
+<br>
+<br>
  Then install the following dependencies
 <br>
 <pre>
-sudo apt-get install ca-certificates curl gnupg lsb-release -y
+sudo apt-get install ca-certificates curl gnupg lsb-release git -y
 sudo mkdir -m 0755 -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo \
@@ -55,24 +54,6 @@ systemctl enable docker
 systemctl restart containerd
 systemctl restart docker
 </pre>
-<br>
-Check if your <code>/etc/apt/sources.list</code> contains default debian repo:
-<pre>
-deb http://deb.debian.org/debian buster main contrib non-free
-deb-src http://deb.debian.org/debian buster main contrib non-free
-deb http://deb.debian.org/debian buster-updates main contrib non-free
-deb-src http://deb.debian.org/debian buster-updates main contrib non-free
-deb http://deb.debian.org/debian buster-backports main contrib non-free
-deb-src http://deb.debian.org/debian buster-backports main contrib non-free
-deb http://security.debian.org/debian-security/ buster/updates main contrib non-free
-deb-src http://security.debian.org/debian-security/ buster/updates main contrib non-free
-</pre>
-<br>
- Run <code>apt update</code> to update repo
-<br>
-<br>
- Install git using <code>apt install git -y</code>
-<br>
 <br>
  Clone this repository <code>git clone -b queue-watcher https://github.com/roxleopardo/sipcmd2.git</code>
 <br>
